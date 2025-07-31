@@ -1,0 +1,87 @@
+export const meta = {
+  title:
+    "Unlocking the Future of AI Integration: Five Takeaways From Our ‘MCP in the Wild’ Webinar",
+};
+
+import ReactPlayer from "react-player";
+
+# Unlocking the Future of AI Integration: Five Takeaways From Our ‘MCP in the Wild’ Webinar
+
+Our recent “MCP in the Wild” webinar—hosted by **Jonah Katz** (co-founder and CEO of [Layer](https://www.buildwithlayer.com)), joined by co-founder and CTO **Andrew Hamilton**, **Zeno Rocha** (founder of [Resend](https://resend.com)), and **Kenneth Auchenberg** (investor at [Alley Corp](https://alleycorp.com))—explored how the Model Context Protocol (MCP) is changing the way developers and organizations build AI-driven experiences. Here are five core insights that emerged from the discussion.
+
+## 1. MCP Moves You from “Developer Experience” to “Agent Experience”
+
+> “Every little decision we made to improve DX actually helped AX.”  
+> – _Zeno Rocha_ ([LinkedIn](https://www.linkedin.com/in/zenorocha/))
+
+#### Key Insights:
+
+- **Adopt a New Design Mindset.** Organizations like Resend are finding that straightforward APIs, clear documentation, and frictionless onboarding serve AI agents just as well as they serve human developers.
+- **Strengthen Developer Foundations to Fuel Agent Adoption.** Building a robust developer experience (DX)—with well-structured endpoints and minimal friction—becomes invaluable when AI agents need to parse your APIs automatically.
+- **Build Confidence Through Iteration.** As Zeno noted, even micro-level improvements in DX often _amplify_ an agent’s ability to orchestrate complex workflows. For a deep dive into bridging user and builder viewpoints, see Jonah’s blog about the [MCP Experience (MCPX)](https://www.linkedin.com/pulse/why-mcp-experience-matters-jonah-katz-0ityf/).
+
+## 2. The Power of Workflows and “Vibe Flows”
+
+> “It’s about building a quick loop: prompt, verify, see results. That’s what differentiates a good MCP server.”
+> – _Andrew Hamilton_ ([LinkedIn](https://www.linkedin.com/in/andrew-p-hamilton/))
+
+#### Key Insights
+
+- **Adopt a Prompt–Verify–Iterate Cycle.** A powerful MCP server lets AI tools (like ChatGPT or Claude) call APIs, propose actions, and verify changes in quick succession—creating a fluid developer or end-user experience.
+- **Orchestrate Multi-Step Actions Seamlessly.** Real-world scenarios rarely involve single endpoints; think provisioning a database, configuring DNS, and sending emails. Layered steps and “vibe flows” make it all feel seamless.
+- **Accelerate Developer Velocity.** Quick, automated feedback cycles keep developers (or end-users) focused on high-level creativity rather than manual tasks.
+
+#### Dive deeper
+
+For a lighter, fun take on orchestrating multi-step flows, check out Andrew blog, [“Building a VSCode Chat Extension to Order Me Cheeseburgers”](https://docs.buildwithlayer.com/blog/vscode_grubhub_extension), which shows how even a “frivolous” integration can illustrate valuable MCP patterns.
+
+## 3. Distribution Is Everything—Especially for MCP
+
+> “I would spend 30% of my time coding a library and 70% on docs and distribution. MCP is the same.”
+> – _Zeno Rocha_
+
+#### Key Insights
+
+- **Spark Community-Driven Discovery.** While multiple MCP “registries” exist, effective adoption still hinges on helping developers—and AI agents—discover your MCP server in your docs or official channels.
+- **Hone In on Your Target Audience.** For consumer or non-technical users, consider remote servers and OAuth-based flows. For developer-focused products, local servers with API tokens may suffice.
+- **Leverage MCP to Drive the AI Funnel.** As Jonah notes in his piece on [AI Go-To-Market](https://docs.buildwithlayer.com/blog/ai_gtm), agents like GitHub Copilot and Cursor can bypass dashboards and docs entirely, making your MCP design crucial for attracting new adoption.
+
+<ReactPlayer controls url="/kenneth_quote_1.mp4" />
+<br />
+
+## 4. Security & Trust: A Work in Progress
+
+> “Right now, you’re basically running untrusted code locally. That’s a huge challenge.”
+> – _Kenneth Auchenberg_ ([LinkedIn](https://www.linkedin.com/in/auchenberg/))
+
+#### Key Insights
+
+- **Guard Against Prompt Injection & Malicious Code.** Because AI agents can execute commands on your behalf, authentication and sandboxing are crucial. This concern arises frequently in early MCP builds.
+- **Decide Between Local vs. Remote Servers.** Local servers are straightforward for developers but risky for novices who might blindly install untrusted code. Remote MCP servers with robust OAuth flows can mitigate risks for consumer-facing products.
+- **Stay Ahead of an Evolving Protocol.** The community is working on improved authentication specs (like OAuth 2.1), containerized approaches, and consistent usage analytics.
+
+#### Dive Deeper
+
+For a detailed look at the pitfalls (and potential payoffs) of real-world implementations, and how teams handle these challenges on the fly, read Jonah’s [“Why MCP Experience Matters”](https://docs.buildwithlayer.com/blog/mcp_experience), where he shares observations from a recent MCP Hackathon.
+
+## 5. The Business Case: Planting a Flag for the Future
+
+> “We haven’t seen a direct revenue bump yet, but we want to be early to the party and ready when it takes off.”
+> – _Zeno Rocha_
+
+#### Key Insights
+
+- **Position for Tomorrow’s AI Surge.** MCP might not immediately skyrocket your bottom line, but it’s a strategic investment as AI usage continues to surge.
+- **Differentiate Your Product in a Crowded Market.** Having a robust, AI-accessible MCP server signals readiness. It’s not just a marketing stunt—it can unlock net-new users from chat-based IDEs and no-code AI builders.
+- **Embrace Agentic Workflows as Your New Funnel.** Once you pave a frictionless path for AI to act on your platform, entire processes can happen without manual intervention—expanding who finds and adopts your product.
+
+<ReactPlayer controls url="/zeno_quote.mp4" />
+<br />
+
+## Final Thoughts
+
+For all the buzz, MCP is still in its early days. Its potential lies in enabling AI-driven agent workflows that transcend typical human user interfaces. As Zeno noted, the more you reduce friction for developers, the better you empower AI agents to do meaningful work.
+
+If you’re looking to reduce friction—whether for customers, developers, or “agentic” integrations—MCP can be a game-changer. Expect deeper integrations, improved security models, and a wave of new “vibe flows” that elevate experiences from marketing demos to production-ready pipelines.
+
+_Have questions or want to stay in the loop on future Layer MCP updates? Follow us on LinkedIn or reach out to us!_

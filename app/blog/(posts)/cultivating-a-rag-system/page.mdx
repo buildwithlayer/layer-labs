@@ -1,0 +1,79 @@
+export const meta = {
+  title:
+    "Cultivating a RAG System",
+};
+
+# Cultivating a RAG System
+
+## The problem
+
+It's been almost 3 years since ChatGPT was released, and if you've been on the internet, you've had the displeasure of trying to achieve a simple task with a subpar, RAG-backed, AI chat.
+
+You start out with a simple question -- a concise and clear point of confusion that you need help with. Maybe at first, the chatbot misunderstands what you're asking and answers something else entirely, so you rewrite (reword, rephrase, etc.) until you finally get the bot to understand; only to receive an answer with completely irrelevant references and links (or worse, NO supporting citations).
+
+So you ditch that chat, and attempt to search for the answer yourself. You've lived most of your life without an LLM helping you, and you've grown into a strong and capable master of search-fu! Except, once you start typing your search terms in, you quickly realize it's using the same embeddings-based search powering the disappointing RAG chat you'd already given up on.
+
+### Why is this so common?
+
+Building a RAG system is easy.
+
+Building a good RAG system is hard.
+
+### Retrieval
+
+The foundation of a RAG system is the retrieval. The documents retrieved for a given conversation or query must be *relevant* and *limited*. All the documents used in generation must be related to the users query, and they must be the **most** relevant of all the documents (and *only* the most relevant, you don't want to pollute the prompt with unnecessary information).
+
+The training-inclined engineer might try and fine-tune their own embeddings model to help solve this problem, and this can work; however, this task is not a small one. OpenAI does not (at the time of writing this) expose a way to fine-tune an embeddings model specifically like they do for their LLMs. This means you would either have to fine-tune an open source model or create a new model that receives the OpenAI-generated embeddings and then transforms them to a custom embedding. Definitely no easy task.
+
+### Generation
+
+Let's assume you've managed to hone your retrieval; unfortunately, you aren't out of the woods yet! You need to generate a response. Your response should use all relevant information retrieved, but it can't make up any new "facts." It should fully answer the user's question but still be concise. And perhaps most important, it should know when it doesn't know they answer. It's always better to tell the user you don't know the answer than to try and make something up.
+
+As with retrieval, fine-tuning is an option here. Thankfully, OpenAI does expose a way to fine-tune their LLMs for your purposes, and they make it very easy for anyone to do (even without technical experience). But it comes at a cost! No, really, it's just kind of expensive.
+
+### Fine-tuning (and its issues)
+
+- Any time your documents change, you would need to re-fine-tune your embeddings model/LLM. This problem is mostly unavoidable, but it's still worth stating.
+- Fine-tuning a model semi-locks you into a vendor that supports the sort of training you want to do.
+- When a newer, better version of the LLM you're using comes out, you have to retrain (essentially, from scratch).
+- It's costly! And this cost doesn't end after your training does: it continues on to all the completion calls you make to that fine-tuned model!
+
+## The solution
+
+While we can't do much to solve the need for re-training when your documents update or when a newer model comes out, we can reduce the amount of re-training that is needed! We can also find a method that is generalizable to any LLM vendor and allows you to swap quickly between them. And all at a price-point lower than traditional fine-tuning!
+
+### Prompt Optimization
+
+I know what you're thinking: there is no way that doing some prompt engineering will ever be comparable to fine-tuning! And, you know what? You're right! Prompt engineering is **hard** and **slow**. Humans are not LLMs, so how can a person try to understand how an LLM "thinks" and optimize a prompt to that end? They can't.
+
+Thankfully, we aren't talking about prompt engineering. We're talking about **prompt optimization**.
+
+If you have a dataset of user conversations or queries and the expected responses from the LLM, you can do a form of supervised learning to alter the prompts used in your RAG system. This allows you to squeeze the most value out of the LLM without shelling out big **$** on fine-tuning and completion calls to that model. Sounds too good to be true? Check out the following optimizers:
+
+- [MIPROv2](https://arxiv.org/abs/2406.11695)
+- [BetterTogether](https://arxiv.org/abs/2407.10930)
+- [LeReT](https://arxiv.org/abs/2410.23214)
+
+The best part about this new approach? It is maintainable! We have built a system that abides by the business philosophy of "Kaizen," or "continuous improvement."
+
+### The System
+
+1. You have a dataset of user inputs and expected outputs
+    - This dataset has been separated into testing and training data
+2. We optimize all the prompts in the system using your training data
+    - There can be quite a few different prompt-points in the system, for example:
+        - Quoting or modifying the original documents to create better embeddings
+        - Turning the user query and conversation history into a phrase used to search for documents
+        - General instructions passed into every LLM call throughout the process
+        - Few-shot example prompts
+3. You easily deploy the LLM with its optimized prompts through our one-touch deploys
+4. Users interact with the chat
+    - This data is saved in a new dataset of potential training/testing data
+    - Users may even give feedback on their experience with the chat
+5. Our algorithm tags specific user conversations that exemplify gaps in the current training/testing data
+6. You look over the flagged examples to see if there are any use-cases that should be added to the training/testing data
+7. Repeat!
+
+## Final Thoughts
+
+A high-quality RAG system is like a garden: it needs constant attention and cultivation to really flourish. This doesn't mean it needs to be difficult or time-consuming. With a dashboard of meaningful metrics, one-touch deployments, and intuitive maintenance, having a helpful RAG system is easier than it's ever been!

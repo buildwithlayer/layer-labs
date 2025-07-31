@@ -36,8 +36,10 @@ export default function RootLayout({
       </head>
       <body className={`${manrope.variable} antialiased`}>
         <Navbar />
-        {children}
-        <Footer />
+        <div className="flex flex-col min-h-screen pt-20">
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </div>
         {/* <BlogBanner /> */}
         <GoogleAnalytics gaId="G-6J1GTJ5G7L" />
       </body>
