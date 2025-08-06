@@ -4,7 +4,7 @@ import React from "react";
 
 interface ButtonProps {
   label: string;
-  handleClick: () => void;
+  handleClick?: () => void;
   icon?: React.ReactNode;
   styleOverrides?: React.CSSProperties;
   style?: "contained" | "outlined";

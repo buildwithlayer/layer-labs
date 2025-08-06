@@ -1,6 +1,7 @@
+import PublishData from "../../_components/PublishData";
+
 export const metadata = {
   title: "Cultivating a RAG System",
-  // TODO: Replace this description
   description:
     "Building and maintaining a high-quality Retrieval-Augmented Generation (RAG) system is like cultivating a garden. It requires constant attention and care to flourish, but with the right approach, it can be both manageable and rewarding.",
   openGraph: {
@@ -10,14 +11,28 @@ export const metadata = {
     type: "article",
     images: [
       {
-        url: "https://layerlabs.ai/blog/cultivating-a-rag-system/og-image.jpg",
+        url: "https://storage.googleapis.com/generic-assets/blog-static-assets/cultivating-a-rag-system.png",
         alt: "Cultivating a RAG System",
       },
     ],
+    publishedTime: "2025-08-06T00:00:00.000Z",
   },
+  authors: [
+    {
+      name: "Gavyn Partlow",
+    },
+  ],
 };
 
 # Cultivating a RAG System
+
+<PublishData
+  date={metadata.openGraph.publishedTime}
+  authors={metadata.authors}
+/>
+<br />
+![Cultivating a RAG
+System](https://storage.googleapis.com/generic-assets/blog-static-assets/cultivating-a-rag-system.png)
 
 ## The problem
 

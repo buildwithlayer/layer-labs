@@ -1,9 +1,9 @@
 import { MDXComponents } from "mdx/types";
 
 const components: MDXComponents = {
-    h1: (props) => <h1 className="text-3xl font-extrabold my-5" {...props} />,
-    h2: (props) => <h2 className="text-2xl font-bold mt-8 mb-3" {...props} />,
-    h3: (props) => <h3 className="text-xl font-medium mt-6 mb-2" {...props} />,
+    h1: (props) => <h1 className="text-3xl font-extrabold" {...props} />,
+    h2: (props) => <h2 className="text-2xl font-bold mt-10 mb-3" {...props} />,
+    h3: (props) => <h3 className="text-xl font-medium mt-8 mb-2" {...props} />,
     p: (props) => <p className="my-2" {...props} />,
     a: (props) => (
         <a
