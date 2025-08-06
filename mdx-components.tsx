@@ -1,9 +1,9 @@
 import { MDXComponents } from "mdx/types";
 
 const components: MDXComponents = {
-    h1: (props) => <h1 className="text-3xl font-bold my-4" {...props} />,
-    h2: (props) => <h2 className="text-2xl font-semibold my-3" {...props} />,
-    h3: (props) => <h3 className="text-xl font-medium my-2" {...props} />,
+    h1: (props) => <h1 className="text-3xl font-extrabold my-5" {...props} />,
+    h2: (props) => <h2 className="text-2xl font-bold mt-8 mb-3" {...props} />,
+    h3: (props) => <h3 className="text-xl font-medium mt-6 mb-2" {...props} />,
     p: (props) => <p className="my-2" {...props} />,
     a: (props) => (
         <a
@@ -11,9 +11,9 @@ const components: MDXComponents = {
             {...props}
         />
     ),
-    ul: (props) => <ul className="list-disc pl-5 my-2" {...props} />,
-    ol: (props) => <ol className="list-decimal pl-5 my-2" {...props} />,
-    li: (props) => <li className="my-1" {...props} />,
+    ul: (props) => <ul className="list-disc pl-5 mb-6" {...props} />,
+    ol: (props) => <ol className="list-decimal pl-5 mb-6" {...props} />,
+    li: (props) => <li className="my-2 mb-4" {...props} />,
     img: (props) => (
         <img
             className="max-w-full h-auto rounded-lg shadow-sm"
