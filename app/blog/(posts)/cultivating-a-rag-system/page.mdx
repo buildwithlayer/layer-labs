@@ -1,6 +1,8 @@
-export const meta = {
-  title:
-    "Cultivating a RAG System",
+export const metadata = {
+  title: "Cultivating a RAG System",
+  // TODO: Replace this description
+  description:
+    "Building and maintaining a high-quality Retrieval-Augmented Generation (RAG) system is like cultivating a garden. It requires constant attention and care to flourish, but with the right approach, it can be both manageable and rewarding.",
 };
 
 # Cultivating a RAG System
@@ -21,7 +23,7 @@ Building a good RAG system is hard.
 
 ### Retrieval
 
-The foundation of a RAG system is the retrieval. The documents retrieved for a given conversation or query must be *relevant* and *limited*. All the documents used in generation must be related to the users query, and they must be the **most** relevant of all the documents (and *only* the most relevant, you don't want to pollute the prompt with unnecessary information).
+The foundation of a RAG system is the retrieval. The documents retrieved for a given conversation or query must be _relevant_ and _limited_. All the documents used in generation must be related to the users query, and they must be the **most** relevant of all the documents (and _only_ the most relevant, you don't want to pollute the prompt with unnecessary information).
 
 The training-inclined engineer might try and fine-tune their own embeddings model to help solve this problem, and this can work; however, this task is not a small one. OpenAI does not (at the time of writing this) expose a way to fine-tune an embeddings model specifically like they do for their LLMs. This means you would either have to fine-tune an open source model or create a new model that receives the OpenAI-generated embeddings and then transforms them to a custom embedding. Definitely no easy task.
 
@@ -59,17 +61,17 @@ The best part about this new approach? It is maintainable! We have built a syste
 ### The System
 
 1. You have a dataset of user inputs and expected outputs
-    - This dataset has been separated into testing and training data
+   - This dataset has been separated into testing and training data
 2. We optimize all the prompts in the system using your training data
-    - There can be quite a few different prompt-points in the system, for example:
-        - Quoting or modifying the original documents to create better embeddings
-        - Turning the user query and conversation history into a phrase used to search for documents
-        - General instructions passed into every LLM call throughout the process
-        - Few-shot example prompts
+   - There can be quite a few different prompt-points in the system, for example:
+     - Quoting or modifying the original documents to create better embeddings
+     - Turning the user query and conversation history into a phrase used to search for documents
+     - General instructions passed into every LLM call throughout the process
+     - Few-shot example prompts
 3. You easily deploy the LLM with its optimized prompts through our one-touch deploys
 4. Users interact with the chat
-    - This data is saved in a new dataset of potential training/testing data
-    - Users may even give feedback on their experience with the chat
+   - This data is saved in a new dataset of potential training/testing data
+   - Users may even give feedback on their experience with the chat
 5. Our algorithm tags specific user conversations that exemplify gaps in the current training/testing data
 6. You look over the flagged examples to see if there are any use-cases that should be added to the training/testing data
 7. Repeat!

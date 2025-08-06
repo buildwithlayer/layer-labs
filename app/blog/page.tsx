@@ -1,8 +1,14 @@
 import fs from 'fs/promises'
 import path from 'path'
 import Link from 'next/link'
+import { Metadata } from 'next'
 
 export const dynamic = 'force-static'
+
+export const metadata: Metadata = {
+  title: "Layer Labs Blog",
+  description: "Explore our latest insights and updates on Layer Labs products.",
+}
 
 type PostMeta = {
   title: string
@@ -11,30 +17,16 @@ type PostMeta = {
 
 async function getPosts(): Promise<Array<PostMeta & { slug: string }>> {
   const postsDir = path.join(process.cwd(), 'app', 'blog', '(posts)')
-
-  // Read entries and only keep directories
   const dirents = await fs.readdir(postsDir, { withFileTypes: true })
-  const slugs = dirents
-    .filter((d) => d.isDirectory())
-    .map((d) => d.name)
+  const slugs = dirents.filter(d => d.isDirectory()).map(d => d.name)
 
   const posts = await Promise.all(
-    slugs.map(async (slug) => {
-      const filePath = path.join(postsDir, slug, 'page.mdx')
-      const fileContent = await fs.readFile(filePath, 'utf8')
-
-      // Extract the `meta` export from the file content
-      const metaMatch = fileContent.match(/export const meta = ({[\s\S]*?});/)
-      if (!metaMatch) {
-        throw new Error(`Meta export not found in file: ${filePath}`)
-      }
-
-      const meta = eval(`(${metaMatch[1]})`) // Evaluate the meta object
-      return { slug, ...(meta as PostMeta) }
+    slugs.map(async slug => {
+      const mod = await import(`./(posts)/${slug}/page.mdx`)
+      const meta = mod.metadata as PostMeta
+      return { slug, ...meta }
     })
   )
-
-  console.log('Posts:', posts) // Debugging line to check the posts structure
 
   return posts
 }

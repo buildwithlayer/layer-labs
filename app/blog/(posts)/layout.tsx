@@ -1,3 +1,12 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Layer Labs Blog",
+    template: "%s | Layer Labs Blog",
+  }
+}
+
 export default function BlogPostLayout({
   children,
 }: Readonly<{
