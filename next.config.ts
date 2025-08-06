@@ -4,6 +4,10 @@ import createMDX from "@next/mdx";
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
 
+  images: {
+    domains: ["storage.googleapis.com"],
+  },
+
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
