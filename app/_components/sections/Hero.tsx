@@ -2,7 +2,6 @@
 
 import React from "react";
 import "animate.css/animate.compat.css";
-import ScrollAnimation from "react-animate-on-scroll";
 import Button from "../Button";
 import snaplinearThumb from "public/snaplinear-thumb.png";
 import mcpThumb from "public/mcp-thumb.png";
@@ -10,6 +9,7 @@ import placeholderThumb from "public/placeholder-thumb.png";
 import Image, { StaticImageData } from "next/image";
 import SnapLinearIcon from "public/snaplinear.svg";
 import MCPIcon from "public/mcp.svg";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -22,19 +22,18 @@ const Hero = () => {
               <h1 className="font-medium text-6xl">Welcome to Layer Labs,</h1>
               <p className="text-xl">where we build AI products for real world impact.</p>
             </div>
-            <Button label="Contact Us" handleClick={() => {}} size="lg" />
+            {/* <Button label="Contact Us" size="lg" /> */}
           </div>
           {/* Product Cards */}
           <ProductCard title="SnapLinear" description="Turn your meetings into actionable tasks in Linear." imageSrc={snaplinearThumb} ctas={
             <div className="flex gap-2">
-              <Button label="Try Now" handleClick={() => {}} />
-              <Button label="Learn More" handleClick={() => {}} style="outlined" />
+              <Link href="https://snaptask.io" target="_blank"><Button label="Try Now" /></Link>
             </div>
           }
             productIcon={<SnapLinearIcon className="w-8 h-8 fill-black" />}
           />
-          <ProductCard title="RAG Remastered" description="Description for RAG Remastered" imageSrc={placeholderThumb} ctas={<Button label="Coming Soon..." disabled handleClick={() => {}} style="outlined" />} />
-          <ProductCard title="MCP Services" description="We built a suite of tools to make using Model Context Protocol easier." imageSrc={mcpThumb} ctas={<Button label="Learn More" handleClick={() => {}} style="outlined" />} productIcon={<MCPIcon className="w-8 h-8 fill-black" />} />
+          <ProductCard title="RAG Remastered" description="Description for RAG Remastered" imageSrc={placeholderThumb} ctas={<Link href="/blog/cultivating-a-rag-system"><Button label="Learn More" style="outlined" /></Link>} />
+          <ProductCard title="MCP Services" description="We built a suite of tools to make using Model Context Protocol easier." imageSrc={mcpThumb} ctas={<Button label="Coming Soon..." disabled style="outlined" />} productIcon={<MCPIcon className="w-8 h-8 fill-black" />} />
         </div>
       </div>
     </div>

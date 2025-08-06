@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import LayerLogo from "public/layerlabs.svg";
 import React from "react";
