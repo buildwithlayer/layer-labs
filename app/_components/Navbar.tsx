@@ -22,10 +22,10 @@ const Navbar = () => {
         {/* Inner nav container */}
         <div className="max-w-[--content-width] w-full flex justify-between items-center p-6">
           {/* Brand */}
-          <a className="flex items-center gap-4 justify-center" href="/">
+          <Link className="flex items-center gap-4 justify-center" href="/">
             <LayerLogo fill="var(--primary)" height={32} />
             <h1 className="font-bold text-[24px]">Layer <span className="font-normal">Labs</span></h1>
-          </a>
+          </Link>
           {/* NavLinks */}
           <div className="flex gap-8 items-center">
             <div className="flex gap-6 items-center">

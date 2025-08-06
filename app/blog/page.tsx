@@ -3,6 +3,7 @@ import path from 'path'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import PublishData from './_components/PublishData'
+import Image from 'next/image'
 
 export const dynamic = 'force-static'
 
@@ -56,8 +57,8 @@ export default async function Page() {
             className="p-4 border border-black/20 rounded-md hover:bg-black/5 transition"
           >
             {openGraph?.images && openGraph.images[0] && (
-              <img
-                src={openGraph.images[0].url} alt={openGraph.images[0].alt} className='mb-4 rounded-md' />
+              <Image
+                src={openGraph.images[0].url} alt={openGraph.images[0].alt || ""} className='mb-4 rounded-md' />
             )}
             <h2 className="text-2xl font-medium text-black">{title}</h2>
             <PublishData authors={authors} date={openGraph.publishedTime} />
