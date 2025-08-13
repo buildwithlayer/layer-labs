@@ -17,14 +17,7 @@ const nextConfig: NextConfig = {
     return config;
   },
 
-  turbopack: {
-    rules: {
-      "*.svg": {
-        loaders: ["@svgr/webpack"],
-        as: "*.js",
-      },
-    },
-  },
+  // Removing turbopack config as it may cause build issues
 
   experimental: {
     mdxRs: true,
