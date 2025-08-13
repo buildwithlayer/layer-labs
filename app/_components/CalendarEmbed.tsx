@@ -7,8 +7,8 @@ interface CalendarEmbedProps {
 }
 
 export default function CalendarEmbed({
-  title = "Meet with Us",
-  description = "Schedule a meeting with our team to learn more about Layer Labs and how we can help you build better software.",
+  title = "Want to chat with our team?",
+  description = "Schedule a meeting and let us know what you want to chat about.",
   className = "",
 }: CalendarEmbedProps) {
   return (
@@ -25,7 +25,6 @@ export default function CalendarEmbed({
           frameBorder="0"
           title="Schedule a meeting with Layer Labs"
           className="rounded-md shadow-md"
-          loading="lazy"
           allow="camera; microphone; autoplay; clipboard-write"
         ></iframe>
       </div>
