@@ -21,8 +21,8 @@ export default function BlogPostLayout({
         {/* Calendar Embed Section */}
         <div className="mt-16 pt-8 border-t border-gray-200">
           <CalendarEmbed 
-            title="Want to learn more about Layer Labs?" 
-            description="Schedule a meeting with our team to discuss how we can help you build better software."
+            title="Want to chat with our team?" 
+            description="Schedule a meeting and let us know what you want to discuss."
           />
         </div>
       </div>
