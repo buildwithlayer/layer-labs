@@ -24,10 +24,10 @@ export default function CalendarEmbed({
           height="600px"
           frameBorder="0"
           title="Schedule a meeting with Layer Labs"
-          className="rounded-md"
+          className="rounded-md shadow-sm"
+          loading="lazy"
         ></iframe>
       </div>
     </div>
   );
 }
-
