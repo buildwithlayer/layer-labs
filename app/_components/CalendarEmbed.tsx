@@ -8,7 +8,7 @@ interface CalendarEmbedProps {
 
 export default function CalendarEmbed({
   title = "Meet with Us",
-  description = "Schedule a meeting with our team to learn more about Layer Labs and how we can help you.",
+  description = "Schedule a meeting with our team to learn more about Layer Labs and how we can help you build better software.",
   className = "",
 }: CalendarEmbedProps) {
   return (
