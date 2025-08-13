@@ -24,8 +24,9 @@ export default function CalendarEmbed({
           height="600px"
           frameBorder="0"
           title="Schedule a meeting with Layer Labs"
-          className="rounded-md shadow-sm"
+          className="rounded-md shadow-md"
           loading="lazy"
+          allow="camera; microphone; autoplay; clipboard-write"
         ></iframe>
       </div>
     </div>
