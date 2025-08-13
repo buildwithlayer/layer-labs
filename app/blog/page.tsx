@@ -49,24 +49,26 @@ export default async function Page() {
 
   return (
     <div className="w-screen flex items-center justify-center">
-      <div className="w-full max-w-[--content-width] grid grid-cols-1 md:grid-cols-2 gap-4 py-16 px-4">
-        {posts.map(({ slug, title, description, openGraph, authors }) => (
-          <Link
-            key={slug}
-            href={`/blog/${slug}`}
-            className="p-4 border border-black/20 rounded-md hover:bg-black/5 transition"
-          >
-            {openGraph?.images && openGraph.images[0] && (
-              <Image
-                src={openGraph.images[0].url} alt={openGraph.images[0].alt || ""} className='mb-4 rounded-md' />
-            )}
-            <h2 className="text-2xl font-medium text-black">{title}</h2>
-            <PublishData authors={authors} date={openGraph.publishedTime} />
-            {description && (
-              <p className="mt-2 text-gray-500">{description}</p>
-            )}
-          </Link>
-        ))}
+      <div className="w-full max-w-[--content-width] flex flex-col py-16 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {posts.map(({ slug, title, description, openGraph, authors }) => (
+            <Link
+              key={slug}
+              href={`/blog/${slug}`}
+              className="p-4 border border-black/20 rounded-md hover:bg-black/5 transition"
+            >
+              {openGraph?.images && openGraph.images[0] && (
+                <Image
+                  src={openGraph.images[0].url} alt={openGraph.images[0].alt || ""} className='mb-4 rounded-md' />
+              )}
+              <h2 className="text-2xl font-medium text-black">{title}</h2>
+              <PublishData authors={authors} date={openGraph.publishedTime} />
+              {description && (
+                <p className="mt-2 text-gray-500">{description}</p>
+              )}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -1,0 +1,33 @@
+import React from 'react';
+
+interface CalendarEmbedProps {
+  title?: string;
+  description?: string;
+  className?: string;
+}
+
+export default function CalendarEmbed({
+  title = "Want to chat with our team?",
+  description = "Schedule a meeting and let us know what you want to chat about.",
+  className = "",
+}: CalendarEmbedProps) {
+  return (
+    <div className={`w-full border border-black/20 rounded-lg p-6 bg-white shadow-sm ${className}`}>
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      {description && <p className="text-gray-600 mb-4">{description}</p>}
+      
+      {/* Cal.com embed */}
+      <div className="cal-embed">
+        <iframe
+          src="https://calendly.com/d/cv3g-n84-9qp/layer-labs"
+          width="100%"
+          height="600px"
+          frameBorder="0"
+          title="Schedule a meeting with Layer Labs"
+          className="rounded-md shadow-md"
+          allow="camera; microphone; autoplay; clipboard-write"
+        ></iframe>
+      </div>
+    </div>
+  );
+}
