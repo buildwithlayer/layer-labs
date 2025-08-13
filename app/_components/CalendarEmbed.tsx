@@ -19,7 +19,7 @@ export default function CalendarEmbed({
       {/* Cal.com embed */}
       <div className="cal-embed">
         <iframe
-          src="https://cal.com/team/layerlabs/meet"
+          src="https://calendly.com/d/cv3g-n84-9qp/layer-labs"
           width="100%"
           height="600px"
           frameBorder="0"
