@@ -59,7 +59,7 @@ export default async function Page() {
             >
               {openGraph?.images && openGraph.images[0] && (
                 <Image
-                  src={openGraph.images[0].url} alt={openGraph.images[0].alt || ""} className='mb-4 rounded-md' />
+                  src={openGraph.images[0].url} alt={openGraph.images[0].alt || ""} className='mb-4 rounded-md w-full' width={1000} height={1000} />
               )}
               <h2 className="text-2xl font-medium text-black">{title}</h2>
               <PublishData authors={authors} date={openGraph.publishedTime} />
