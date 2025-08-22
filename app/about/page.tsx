@@ -1,3 +1,5 @@
+import CalendarEmbed from "../_components/CalendarEmbed";
+
 const AboutPage = () => {
   return (
     <div className="w-screen flex items-center justify-center">
@@ -41,6 +43,8 @@ const AboutPage = () => {
           <br />
           We are always happy to chat.
         </p>
+        <div className="h-10" />
+        <CalendarEmbed />
       </div>
     </div>
   );
