@@ -9,6 +9,7 @@ import Link from "next/link";
 const Navbar = () => {
   const links = [
     { name: "Ideas", link: "/" },
+    { name: "About", link: "/about"},
     { name: "Blog", link: "/blog" },
   ];
 
